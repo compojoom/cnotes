@@ -1,0 +1,12 @@
+build.version=dev
+component.name=cnotes
+component.upperName=CNOTES
+plugins=
+modules_admin=
+; FTP Options
+ftp.host=ftp.example.com
+ftp.port=21
+ftp.username=username
+ftp.password=password
+ftp.dir=/path/to/directory
+ftp.mode=binary
