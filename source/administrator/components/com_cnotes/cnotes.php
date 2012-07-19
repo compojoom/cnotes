@@ -9,8 +9,6 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-echo 'cnotes';
-
 $task = 'list';
 if(isset($_GET['task'])) {
     $task = $_GET['task'];
