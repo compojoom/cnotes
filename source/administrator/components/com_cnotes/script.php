@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Restricted access');
 
 
 /**
- * Script file of Matukio component
+ * Script file of Cnotes component
  */
 class com_cnotesInstallerScript extends CompojoomInstaller
 {
