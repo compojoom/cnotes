@@ -9,11 +9,11 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.controller');
-
-defined( '_JEXEC' ) or die ( 'Restricted access' );
-
-class cnotesController extends JController
+class cnotesTableNote extends JTable
 {
-    protected $default_view = 'notes';
+
+    public function __construct(&$db)
+    {
+        parent::__construct('#__cnotes_notes', 'id', $db);
+    }
 }

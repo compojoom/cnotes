@@ -9,11 +9,10 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.controller');
+jimport('joomla.application.component.controllerform');
 
-defined( '_JEXEC' ) or die ( 'Restricted access' );
+//die('note');
 
-class cnotesController extends JController
-{
-    protected $default_view = 'notes';
+class cnotesControllerNote extends JControllerForm{
+
 }

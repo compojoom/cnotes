@@ -11,6 +11,19 @@ defined('_JEXEC') or die('Restricted access');
 
 echo 'cnotes';
 
+// Include dependancies
+jimport('joomla.application.component.controller');
+
+$controller = JController::getInstance('Cnotes');
+$controller->execute(JRequest::getCmd('task'));
+$controller->redirect();
+
+
+
+
+return;
+
+
 $task = 'list';
 if(isset($_GET['task'])) {
     $task = $_GET['task'];

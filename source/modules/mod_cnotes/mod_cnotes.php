@@ -38,13 +38,18 @@ echo '</table>';
 
 
 mysql_close($dbh);
+
+$uri = JFactory::getURI()->toString(array('path', 'query'));
+
 ?>
 
 
 <form id="cnotes" action="index.php?option=com_cnotes&task=new" method="post">
     title: <input type="text" name="title" /> <br />
     text: <textarea rows="5" cols="5" name="note"></textarea> <br />
+    <input type="hidden" value="<?php echo $uri; ?>" name="url" />
     <input type="submit" value="submit" />
+    <?php echo JHtml::_('form.token'); ?>
 </form>
 
 <script type="text/javascript">
