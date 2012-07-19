@@ -9,7 +9,8 @@
 
 defined('_JEXEC') or die('Restricted access');
 
+jimport('joomla.application.component.controlleradmin');
 
-class cnotesController extends JController {
-    protected $default_view = 'notes';
+class cnotesControllerNote extends JControllerAdmin {
+
 }
