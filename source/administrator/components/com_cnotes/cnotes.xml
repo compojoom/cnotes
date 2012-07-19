@@ -20,6 +20,9 @@
         </languages>
     </administration>
 
+    <languages folder="language">
+        ##FRONTENDLANGUAGEFILES##
+    </languages>
     <media destination="com_@@COMPONENTNAME@@" folder="media/com_@@COMPONENTNAME@@">
         ##MEDIAPACKAGEFILES##
     </media>
@@ -34,5 +37,9 @@
             <file charset="utf8" driver="mysql">sql/uninstall.mysql.sql</file>
         </sql>
     </uninstall>
+
+    <files folder="components/com_@@COMPONENTNAME@@">
+        ##FRONTENDCOMPONENTPACKAGEFILES##
+    </files>
 
 </extension>
