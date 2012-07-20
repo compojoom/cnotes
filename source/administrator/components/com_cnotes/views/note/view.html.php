@@ -11,20 +11,17 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.view');
 
-class cnotesViewNotes extends JView {
+class cnotesViewNote extends JView {
 
-    public function display($tpl = null) {
-        $this->state = $this->get('state');
-        $this->items = $this->get('Items');
-        $this->pagination = $this->get('Pagination');
+    public function display() {
+        $this->form = $this->get('form');
 
         $this->addToolbar();
-        parent::display($tpl);
+        parent::display();
     }
 
     public function addToolbar() {
-        JToolBarHelper::title(JText::sprintf('COM_CNOTES_NOTES', 'something'));
-
-        JToolBarHelper::editList('note.edit');
+        JToolBarHelper::save('note.save');
+        JToolBarHelper::cancel('note.cancel');
     }
 }

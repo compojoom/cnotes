@@ -12,7 +12,19 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.controller');
 
+$jlang =& JFactory::getLanguage();
+$jlang->load('com_cnotes', JPATH_SITE, 'en-GB', true);
+$jlang->load('com_cnotes', JPATH_SITE, $jlang->getDefault(), true);
+$jlang->load('com_cnotes', JPATH_SITE, null, true);
+$jlang->load('com_cnotes', JPATH_ADMINISTRATOR, 'en-GB', true);
+$jlang->load('com_cnotes', JPATH_ADMINISTRATOR, $jlang->getDefault(), true);
+$jlang->load('com_cnotes', JPATH_ADMINISTRATOR, null, true);
+
+
 $controller = JController::getInstance('cnotes');
+
+//var_dump(JRequest::getCmd('task'));
+//die();
 $controller->execute(JRequest::getCmd('task'));
 $controller->redirect();
 return;
@@ -66,31 +78,41 @@ function showList() {
 
 
 function edit() {
-    require_once JPATH_ROOT .'/configuration.php';
-    $config = new JConfig;
-    $username = $config->user;
-    $password = $config->password;;
-    $hostname = $config->host;
-    $mysqli = new mysqli($hostname, $username, $password, $config->db)
-        or die("Unable to connect to MySQL");
+    $db = JFactory::getDbo();
+    $query = $db->getQuery(true);
 
-    $query = "SELECT * FROM jos_cnotes_notes WHERE id = " .$_GET['id'];
-    $result = $mysqli->multi_query($query);
+    $input = JFactory::getApplication()->input;
 
-    echo '<form action="index.php?option=com_cnotes&task=save" method="POST">';
+    var_dump($input->get('id', 0, 'int'));
+    die();
+//    JRequest::getInt('id') = $_GET['id'];
+//    $query->select('*')->from('#__cnotes_notes')
+//        ->where('id = ' .$db->quote((int)$_GET['id']));
+//    require_once JPATH_ROOT .'/configuration.php';
+//    $config = new JConfig;
+//    $username = $config->user;
+//    $password = $config->password;;
+//    $hostname = $config->host;
+//    $mysqli = new mysqli($hostname, $username, $password, $config->db)
+//        or die("Unable to connect to MySQL");
+//
+//    $query = "SELECT * FROM jos_cnotes_notes WHERE id = " .$_GET['id'];
+//    $result = $mysqli->multi_query($query);
 
-    if ($result = $mysqli->store_result()) {
-        while ($row = $result->fetch_row()) {
-            echo 'id: ' . $row[0] . '<br />';
-            echo 'title: <input name="title" type="text" value="'.$row[1].'" /> <br />';
-            echo 'note: <textarea name="note" rows="5" cols="5">'.$row[2].'</textarea> <br />';
-            echo '<input name="id" type="hidden" value="'.$row[0].'" />';
-            echo '<button>save</button>';
-        }
-        $result->free();
-    }
-
-    echo '</form>';
+//    echo '<form action="index.php?option=com_cnotes&task=save" method="POST">';
+//
+//    if ($result = $mysqli->store_result()) {
+//        while ($row = $result->fetch_row()) {
+//            echo 'id: ' . $row[0] . '<br />';
+//            echo 'title: <input name="title" type="text" value="'.$row[1].'" /> <br />';
+//            echo 'note: <textarea name="note" rows="5" cols="5">'.$row[2].'</textarea> <br />';
+//            echo '<input name="id" type="hidden" value="'.$row[0].'" />';
+//            echo '<button>save</button>';
+//        }
+//        $result->free();
+//    }
+//
+//    echo '</form>';
 
 
     $mysqli->close();

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+        <field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC"/>
+
+        <field name="created_by" type="user"
+               label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="JGLOBAL_FIELD_CREATED_BY_Desc" />
+
+
+        <field name="title" type="text" class="inputbox"
+               size="40" label="JGLOBAL_TITLE"
+               description="COM_CNOTES_FIELD_TITLE_DESC" required="true" />
+
+        <field name="note" type="editor" buttons="true" hide="pagebreak,readmore"
+               class="inputbox"
+               filter="JComponentHelper::filterText"
+               label="JGLOBAL_DESCRIPTION" description="COM_CNOTES_FIELD_DESCRIPTION_DESC" />
+
+    </fieldset>
+</form>

@@ -9,9 +9,9 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.controllerform');
+class cnotesTableNotes extends JTable {
 
-class CnotesControllerNote extends JControllerForm {
-
-
+    public function __construct(&$db) {
+        parent::__construct('#__cnotes_notes', 'id', $db);
+    }
 }
