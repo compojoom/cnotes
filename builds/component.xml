@@ -115,15 +115,6 @@
             </filterchain>
         </copy>
 
-        <copy file="${dirs.source}/administrator/components/com_${component.name}/script.php"
-              tofile="${destination.dir}/script.php" overwrite="true">
-            <filterchain>
-                <replacetokens begintoken="##" endtoken="##">
-                    <token key="HOTSPOTS_VERSION" value="${build.version}"/>
-                </replacetokens>
-            </filterchain>
-        </copy>
-
         <extfile file="${destination.dir}/${component.name}.xml"
                  sourceDir="${dirs.source}"
                  component="com_${component.name}"

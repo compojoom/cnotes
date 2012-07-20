@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="2.5.0" method="upgrade">
-    <name>COM_CNOTES</name>
+    <name>COM_@@COMPONENTNAME@@</name>
     <creationDate>@@DATE@@</creationDate>
     <author>compojoom.com</author>
     <authorEmail>services@compojoom.com</authorEmail>
