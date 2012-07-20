@@ -10,6 +10,20 @@
 defined('_JEXEC') or die('Restricted access');
 
 
+JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables/');
+
+jimport('joomla.application.component.controller');
+
+$controller = JController::getInstance('cnotes');
+
+//var_dump(JRequest::getCmd('task'));
+//die();
+$controller->execute(JRequest::getCmd('task'));
+$controller->redirect();
+return;
+
+return;
+
 $task = $_GET['task'];
 
 

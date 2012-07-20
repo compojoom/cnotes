@@ -5,4 +5,4 @@ CREATE TABLE IF NOT EXISTS `#__cnotes_notes` (
   `created_by` int(11) NOT NULL,
   `created_on` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+);

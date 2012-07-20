@@ -13,6 +13,9 @@ Jhtml::_('behavior.framework', true);
 $document = JFactory::getDocument();
 
 $document->addScript(JURI::root().'/media/mod_cnotes/js/cnotes.js');
+
+$uri = JFactory::getURI();
+
 ?>
 
 
@@ -30,8 +33,8 @@ $document->addScript(JURI::root().'/media/mod_cnotes/js/cnotes.js');
     <?php endforeach; ?>
 </table>
 
-<form id="cnotes" action="index.php?option=com_cnotes&task=new" method="post">
-    title: <input type="text" name="title" /> <br />
-    text: <textarea rows="5" cols="5" name="note"></textarea> <br />
+<form id="cnotes" action="index.php?option=com_cnotes&format=raw&task=note.add" method="post">
+    title: <input type="text" name="jform[title]" /> <br />
+    text: <textarea rows="5" cols="5" name="jform[note]"></textarea> <br />
     <input type="submit" value="submit" />
 </form>
