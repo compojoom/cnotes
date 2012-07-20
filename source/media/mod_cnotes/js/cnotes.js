@@ -12,11 +12,15 @@ window.addEvent('domready', function () {
         console.log('submit');
 
         var self = this;
+
         var request = new Request.JSON({
             url:document.id('cnotes').get('action'),
             data:self,
-            onComplete:function () {
-                console.log('complete');
+            onComplete:function (data) {
+                if(data.status == 'OK') {
+                    alert('Everything went fine');
+                }
+                console.log(data);
             }
         });
         request.send();

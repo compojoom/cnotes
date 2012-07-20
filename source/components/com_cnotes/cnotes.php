@@ -10,6 +10,33 @@
 defined('_JEXEC') or die('Restricted access');
 
 
+
+JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables/');
+
+
+$jlang =& JFactory::getLanguage();
+
+$jlang->load('com_cnotes', JPATH_ADMINISTRATOR, 'en-GB', true);
+$jlang->load('com_cnotes', JPATH_ADMINISTRATOR, $jlang->getDefault(), true);
+$jlang->load('com_cnotes', JPATH_ADMINISTRATOR, null, true);
+$jlang->load('com_cnotes', JPATH_SITE, 'en-GB', true);
+$jlang->load('com_cnotes', JPATH_SITE, $jlang->getDefault(), true);
+$jlang->load('com_cnotes', JPATH_SITE, null, true);
+
+
+jimport('joomla.application.component.controller');
+
+$controller = JController::getInstance('cnotes');
+
+//var_dump(JRequest::getCmd('task'));
+//die();
+$controller->execute(JRequest::getCmd('task'));
+$controller->redirect();
+
+
+
+return;
+
 $task = $_GET['task'];
 
 
