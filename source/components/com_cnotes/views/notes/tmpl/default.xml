@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="com_notes_notes_view_default_title" option="com_notes_notes_view_default_option">
+		<message>
+			<![CDATA[com_notes_notes_view_default_title_desc]]>
+		</message>
+	</layout>
+
+</metadata>

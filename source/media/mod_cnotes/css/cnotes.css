@@ -1,3 +1,32 @@
-#cnotes input {
-    margin: 20px;
+.cnotes input,
+.cnotes textarea {
+    border: 1px solid #CCC;
+    margin-bottom: 10px;
+}
+.cnotes input {
+    width: 120px;
+}
+.cnotes textarea {
+    width: 160px;
+}
+.cnotes label {
+    width: 30px;
+    display: block;
+}
+
+#cnotes-notes div {
+    border-bottom: 1px dotted #cccccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+#cnotes-notes span.title {
+    display: block;
+}
+
+.clear {
+    clear:both;
+}
+
+.rgt {
+    float: right;
 }

@@ -14,8 +14,7 @@
     <version>2.5.0</version>
     <description>Notes</description>
     <files>
-        <filename module="mod_cnotes">mod_cnotes.php</filename>
-        <filename>mod_cnotes.xml</filename>
+        ##PACKAGEFILESMODULE##
     </files>
     <config>
         <fields name="params">

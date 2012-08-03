@@ -6,24 +6,46 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
+var cnotes = new Class({
+    Implements: [Options],
+    options: {
+        container: 'cnotes',
+        table: 'cnotes-notes'
+    },
+    initialize: function(options) {
+        this.setOptions(options);
 
-window.addEvent('domready', function () {
-    document.id('cnotes').addEvent('submit', function () {
-        console.log('submit');
+        var el = document.id(this.options.container);
+        if(el) {
+            this.start();
+        }
 
-        var self = this;
 
-        var request = new Request.JSON({
-            url:document.id('cnotes').get('action'),
-            data:self,
-            onComplete:function (data) {
-                if(data.status == 'OK') {
-                    alert('Everything went fine');
+    },
+
+    start: function() {
+        var form = document.id(this.options.container);
+        var validator = new Form.Validator.Inline(form);
+        form.addEvent('submit', function() {
+            var request = new Request.JSON({
+                url:form.get('action'),
+                data:form,
+                onComplete:function (data) {
+                    if(data.status == 'OK') {
+                        alert('Everything went fine');
+
+                        var div = new Element('div', {
+                           'html' : '<span class="title"><a href="'+data.note.edit+'">'+data.note.title+'</a></span>' + data.note.note
+                        });
+                        div.inject('cnotes-notes');
+                    }
                 }
-                console.log(data);
+            });
+
+            if(validator.validate()) {
+                request.send();
             }
+            return false;
         });
-        request.send();
-        return false;
-    });
+    }
 });

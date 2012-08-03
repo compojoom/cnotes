@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Daniel Dimitrov - compojoom.com
- * @date: 19.07.12
+ * @date: 03.08.12
  *
  * @copyright  Copyright (C) 2008 - 2012 compojoom.com . All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE
@@ -23,9 +23,15 @@ class cnotesModelNotes extends JModelList {
 
     protected function getListQuery() {
         $db = JFactory::getDbo();
+        $user = JFactory::getUser();
         $query = $db->getQuery(true);
 
-        $query->select('*')->from('#__cnotes_notes AS n');
+        if(!$user->get('id')) {
+            return $query;
+        }
+
+        $query->select('*')->from('#__cnotes_notes AS n')
+            ->where('created_by = ' . $db->quote($user->get('id')));
 
         $orderCol = $this->state->get('list.ordering');
         $orderDir = $this->state->get('list.direction');
@@ -34,7 +40,7 @@ class cnotesModelNotes extends JModelList {
 
         if(!empty($search)) {
             $search = $db->quote('%'.$db->escape($search, true) . '%');
-            $query->where('n.title LIKE ' . $search);
+            $query->where('n.title LIKE ' . $search . ' OR note LIKE ' . $search);
         }
 
         $query->order($orderCol. ' ' . $orderDir);
