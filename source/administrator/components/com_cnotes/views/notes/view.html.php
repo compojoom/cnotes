@@ -26,5 +26,6 @@ class cnotesViewNotes extends JView {
         JToolBarHelper::title(JText::sprintf('COM_CNOTES_NOTES', 'something'));
 
         JToolBarHelper::editList('note.edit');
+        JToolBarHelper::deleteList('COM_CNOTES_ARE_YOU_SURE_DELETE_THIS_NOTE','notes.delete');
     }
 }

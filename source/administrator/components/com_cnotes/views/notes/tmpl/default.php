@@ -16,34 +16,47 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
       action="<?php echo JRoute::_('index.php?option=com_cnotes&view=notes'); ?>">
     <div class="filter-search fltlft">
         <label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-        <input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CNOTES_SEARCH_IN_TITLE'); ?>" />
+        <input type="text" name="filter_search" id="filter_search"
+               value="<?php echo $this->escape($this->state->get('filter.search')); ?>"
+               title="<?php echo JText::_('COM_CNOTES_SEARCH_IN_TITLE'); ?>"/>
         <button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-        <button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+        <button type="button"
+                onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
     </div>
     <div class="clr"></div>
     <table class="adminlist">
         <thead>
         <tr>
-            <th></th>
-            <th><?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'n.title', $listDir, $listOrder); ?></th>
-            <th>note</th>
+            <th width="2%"><input type="checkbox" name="checkall-toggle" value=""
+                                  title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)"/>
+            </th>
+            <th style="text-align: left;"><?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'n.title', $listDir, $listOrder); ?></th>
+            <th style="text-align: left;"><?php echo JText::_('COM_CNOTES_NOTE'); ?></th>
         </tr>
         </thead>
         <tbody>
+        <?php if($this->items) : ?>
             <?php foreach ($this->items as $i => $item) : ?>
-                <tr class="row<?php echo $i % 2; ?>">
-                    <td><?php echo JHtml::_('grid.id', $i, $item->id); ?></td>
-                    <td><?php echo $item->title; ?></td>
-                    <td><?php echo $item->note; ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-        <tfoot>
+            <tr class="row<?php echo $i % 2; ?>">
+                <td><?php echo JHtml::_('grid.id', $i, $item->id); ?></td>
+                <td><?php echo $item->title; ?></td>
+                <td><?php echo $item->note; ?></td>
+            </tr>
+                <?php endforeach; ?>
+            </tbody>
+        <?php else : ?>
             <tr>
                 <td colspan="3">
-                    <?php echo $this->pagination->getListFooter(); ?>
+                    <?php echo JText::_('COM_CNOTES_NO_NOTES'); ?>
                 </td>
             </tr>
+        <?php endif; ?>
+        <tfoot>
+        <tr>
+            <td colspan="3">
+                <?php echo $this->pagination->getListFooter(); ?>
+            </td>
+        </tr>
 
         </tfoot>
 
@@ -53,4 +66,8 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
         <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
         <input type="hidden" name="filter_order_Dir" value="<?php echo $listDir; ?>"/>
     </table>
+
+    <?php echo JHtml::_('form.token'); ?>
 </form>
+
+<?php echo cnotesHelperUtils::footer(); ?>

@@ -15,7 +15,7 @@ $document->addStyleSheet('/media/com_cnotes/css/cnotes.css');
 
 <form name="adminForm" action="<?php JRoute::_('index.php?option=com_cnotes&view=note&id='.(int)$this->item->id); ?>" method="post">
     <button class="rgt">
-        <?php echo JText::_('COM_CNOTES_ADD_NOTE'); ?>
+        <?php echo JText::_('COM_CNOTES_SAVE_NOTE'); ?>
     </button>
 
     <ul>
@@ -31,6 +31,6 @@ $document->addStyleSheet('/media/com_cnotes/css/cnotes.css');
 
     <div class="clear"></div>
 
-    <input name="task" value="note.add" type="hidden" />
+    <input name="task" value="note.save" type="hidden" />
     <?php echo JHtml::_('form.token'); ?>
 </form>

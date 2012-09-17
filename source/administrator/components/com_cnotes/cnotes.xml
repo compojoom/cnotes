@@ -10,7 +10,11 @@
     <description>Notes component for Joomla!</description>
     <scriptfile>script.php</scriptfile>
     <administration>
-        <menu img="../media/com_cnotes/images/icon-16px-cnotes.png">COM_NOTES</menu>
+        <menu img="../media/com_cnotes/images/icon-16px-cnotes.png">COM_CNOTES</menu>
+        <submenu>
+            <menu img="../media/com_cnotes/images/icon-16px-cnotes.png" view="lists">COM_CNOTES_NOTES</menu>
+            <menu img="../media/com_cnotes/images/live-update.png" view="liveupdate">COM_CNOTES_LIVEUPDATE</menu>
+        </submenu>
         <files folder="administrator/components/com_@@COMPONENTNAME@@">
             ##ADMINCOMPONENTPACKAGEFILES##
         </files>
@@ -42,4 +46,7 @@
         ##FRONTENDCOMPONENTPACKAGEFILES##
     </files>
 
+    <updateservers>
+        <server type="extension" priority="1" name="CNotes Updates"><![CDATA[ https://compojoom.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=14&dummy=extension.xml]]></server>
+    </updateservers>
 </extension>

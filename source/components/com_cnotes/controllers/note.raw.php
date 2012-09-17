@@ -18,6 +18,7 @@ class cnotesControllerNote extends JController {
     public function add() {
         JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
         $user = JFactory::getUser();
+        $status = 'OK';
 
         // unregistered user - we don't allow that!
         if(!$user->get('id')) {
@@ -35,21 +36,26 @@ class cnotesControllerNote extends JController {
         $data['created_on'] = JFactory::getDate()->toSql();
 
         if(!$row->bind($data)) {
-            echo 'bind unsuccessful';
+            $status = 'FAILURE';
         };
 
         if(!$row->store()) {
-            echo 'something else';
+            $status = 'FAILURE';
         }
 
-        $response = array(
-            'status' => 'OK',
-            'note' => array(
-                'edit' => JRoute::_('index.php?option=com_cnotes&task=note.edit&id='.$row->id),
-                'title' => $row->title,
-                'note' => $row->note
-            )
-        );
+        if($status == 'OK') {
+            $response = array(
+                'status' => $status,
+                'note' => array(
+                    'edit' => JRoute::_('index.php?option=com_cnotes&task=note.edit&id='.$row->id),
+                    'title' => $row->title,
+                    'note' => $row->note
+                )
+            );
+        } else {
+            $response = array('status' => 'FAILURE', 'message' => JText::_('COM_CNOTES_SOMETHING_WENT_WRONG'));
+        }
+
 
         echo json_encode($response);
 

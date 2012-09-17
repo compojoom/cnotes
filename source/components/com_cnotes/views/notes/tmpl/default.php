@@ -11,6 +11,8 @@ defined('_JEXEC') or die('Restricted access');
 
 $listDir = $this->escape($this->state->get('list.direction'));
 $listOrder = $this->escape($this->state->get('list.ordering'));
+
+JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
 ?>
 <form name="adminForm" id="adminForm" method="post"
       action="<?php echo JRoute::_('index.php?option=com_cnotes&view=notes'); ?>">
@@ -20,30 +22,43 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
         <button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
         <button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
     </div>
-    <div class="clr"></div>
-    <table class="adminlist">
+    <div class="clear"></div>
+    <table class="cnotes-table">
         <thead>
         <tr>
-            <th></th>
             <th><?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'n.title', $listDir, $listOrder); ?></th>
-            <th>note</th>
+            <th><?php echo JText::_('COM_CNOTES_NOTE'); ?></th>
+            <th>URL</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($this->items as $i => $item) : ?>
-        <tr class="row<?php echo $i % 2; ?>">
-            <td>
-                <a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.edit&id='.$item->id); ?>">
-                <?php echo $item->title; ?>
-                </a>
-            </td>
-            <td><?php echo $item->note; ?></td>
-        </tr>
-            <?php endforeach; ?>
+            <tr class="row<?php echo $i % 2; ?>">
+                <td>
+                    <a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.edit&id='.$item->id); ?>">
+                        <?php echo $item->title; ?>
+                    </a>
+                </td>
+                <td><?php echo $item->note; ?></td>
+                <td>
+                    <a href="<?php echo JURI::getInstance()->toString(array('scheme','user','pass','host', 'port')).$item->url; ?>"
+                            target="_blank"
+                            >
+                        <?php echo $item->url; ?>
+                    </a>
+                </td>
+                <td>
+                    <a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.delete&id='.$item->id.'&'. JSession::getFormToken() .'=1'); ?>">
+                        <?php echo JText::_('COM_CNOTES_DELETE'); ?>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
         <tfoot>
         <tr>
-            <td colspan="3">
+            <td colspan="3" class="pagination">
                 <?php echo $this->pagination->getListFooter(); ?>
             </td>
         </tr>
@@ -56,4 +71,6 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
         <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>"/>
         <input type="hidden" name="filter_order_Dir" value="<?php echo $listDir; ?>"/>
     </table>
+
+    <?php echo JHtml::_( 'form.token' ); ?>
 </form>

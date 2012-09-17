@@ -7,45 +7,65 @@
  */
 
 var cnotes = new Class({
-    Implements: [Options],
-    options: {
-        container: 'cnotes',
-        table: 'cnotes-notes'
+    Implements:[Events, Options],
+    options:{
+        container:'cnotes',
+        onNoteAdded: function() {
+            this.slide.slideOut();
+        }
     },
-    initialize: function(options) {
+    initialize:function (options) {
         this.setOptions(options);
 
         var el = document.id(this.options.container);
-        if(el) {
-            this.start();
+        if (el) {
+            this.container = el;
+            this.setupForm();
+            this.setupAnim();
         }
-
-
     },
 
-    start: function() {
-        var form = document.id(this.options.container);
-        var validator = new Form.Validator.Inline(form);
-        form.addEvent('submit', function() {
+    setupForm:function () {
+        var container = this.container,
+            form = container.getElement('form'),
+            validator = new Form.Validator.Inline(form),
+            nothing = $$('.cnotes .cnotes-nothing'),
+            notes = container.getElement('.cnotes-notes'),
+            self = this;
+
+        form.addEvent('submit', function () {
             var request = new Request.JSON({
                 url:form.get('action'),
                 data:form,
                 onComplete:function (data) {
-                    if(data.status == 'OK') {
-                        alert('Everything went fine');
-
+                    if (data.status == 'OK') {
+                        self.fireEvent('noteAdded');
+                        if (nothing.length) {
+                            nothing[0].destroy();
+                        }
                         var div = new Element('div', {
-                           'html' : '<span class="title"><a href="'+data.note.edit+'">'+data.note.title+'</a></span>' + data.note.note
+                            'html':'<span class="title"><a href="' + data.note.edit + '">' + data.note.title + '</a></span>' + data.note.note
                         });
-                        div.inject('cnotes-notes');
+                        div.inject(notes).highlight('#F3FF35');
+                        form.reset();
                     }
                 }
             });
 
-            if(validator.validate()) {
+            if (validator.validate()) {
                 request.send();
             }
             return false;
         });
+    },
+
+    setupAnim: function () {
+        var container = this.container,
+            slide = this.slide = new Fx.Slide(container.getElement('form'), {resetHeight: true}).hide(),
+            toggle = container.getElement('.cnotes-toggle');
+
+        toggle.addEvent('click', function () {
+            slide.toggle();
+        })
     }
 });

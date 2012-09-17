@@ -16,6 +16,9 @@
     <files>
         ##PACKAGEFILESMODULE##
     </files>
+    <languages folder="language">
+        ##FRONTENDLANGUAGEFILES##
+    </languages>
     <config>
         <fields name="params">
             <fieldset name="advanced">

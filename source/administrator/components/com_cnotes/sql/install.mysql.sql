@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS `#__cnotes_notes` (
   `note` text NOT NULL,
   `created_by` int(11) NOT NULL,
   `created_on` datetime NOT NULL,
+  `url` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;

@@ -14,18 +14,38 @@
     display: block;
 }
 
-#cnotes-notes div {
+.cnotes input[type=submit]:hover {
+    cursor: pointer;
+}
+
+.cnotes-notes div {
     border-bottom: 1px dotted #cccccc;
     padding-bottom: 5px;
     margin-bottom: 5px;
 }
-#cnotes-notes span.title {
+.cnotes-notes span.title {
     display: block;
+}
+
+.cnotes-form fieldset {
+    margin: 0;
 }
 
 .clear {
     clear:both;
 }
+
+.cnotes-toggle {
+    background: url('../images/add_note.png') 0 0 no-repeat;
+    padding-left: 20px;
+    cursor: pointer;
+    display: block;
+}
+
+.cnotes-toggle:hover {
+    text-decoration: underline;
+}
+
 
 .rgt {
     float: right;
