@@ -14,6 +14,7 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
 
 JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
 ?>
+<h2><?php echo JText::_('COM_CNOTES_YOUR_NOTES'); ?></h2>
 <form name="adminForm" id="adminForm" method="post"
       action="<?php echo JRoute::_('index.php?option=com_cnotes&view=notes'); ?>">
     <div class="filter-search fltlft">
@@ -26,7 +27,7 @@ JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
     <table class="cnotes-table">
         <thead>
         <tr>
-            <th><?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'n.title', $listDir, $listOrder); ?></th>
+            <th width="15%"><?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'n.title', $listDir, $listOrder); ?></th>
             <th><?php echo JText::_('COM_CNOTES_NOTE'); ?></th>
             <th>URL</th>
             <th></th>

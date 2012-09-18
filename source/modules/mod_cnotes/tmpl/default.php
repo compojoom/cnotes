@@ -14,7 +14,7 @@ Jhtml::_('behavior.framework', true);
 $document = JFactory::getDocument();
 $document->addScript(JURI::root() . '/media/mod_cnotes/js/cnotes.js');
 $document->addStyleSheet(JURI::root() . '/media/mod_cnotes/css/cnotes.css');
-$url = JFactory::getURI();
+
 $user = JFactory::getUser();
 $id = $module->id;
 
@@ -63,7 +63,7 @@ $document->addScriptDeclaration($script);
         </fieldset>
 
 
-        <input type="hidden" name="jform[url]" value="<?php echo $url->toString(array('path')); ?>"/>
+        <input type="hidden" name="jform[url]" value="<?php echo modCnoteshelper::getUrl(); ?>"/>
         <?php echo JHtml::_('form.token'); ?>
         <div class="clear"></div>
     </form>
