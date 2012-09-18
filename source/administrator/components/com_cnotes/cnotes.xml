@@ -12,7 +12,7 @@
     <administration>
         <menu img="../media/com_cnotes/images/icon-16px-cnotes.png">COM_CNOTES</menu>
         <submenu>
-            <menu img="../media/com_cnotes/images/icon-16px-cnotes.png" view="lists">COM_CNOTES_NOTES</menu>
+            <menu img="../media/com_cnotes/images/icon-16px-cnotes.png" view="notes">COM_CNOTES_NOTES</menu>
             <menu img="../media/com_cnotes/images/live-update.png" view="liveupdate">COM_CNOTES_LIVEUPDATE</menu>
         </submenu>
         <files folder="administrator/components/com_@@COMPONENTNAME@@">
