@@ -21,6 +21,7 @@ class cnotesViewNote extends JView {
     }
 
     public function addToolbar() {
+        JToolBarHelper::title(JText::_('COM_CNOTES_EDIT_NOTE'), 'edit');
         JToolBarHelper::save('note.save');
         JToolBarHelper::cancel('note.cancel');
     }

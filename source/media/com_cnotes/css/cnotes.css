@@ -33,3 +33,20 @@
 .clear {
     clear:both;
 }
+
+.ad {
+    text-align: center;
+    color: #333333;
+}
+
+.ad p {
+    margin-bottom: 5px;;
+}
+
+.icon-48-note {
+    background: url('../images/notes-48px.png');
+}
+
+.icon-48-edit {
+    background: url('../images/note-edit-48px.png');
+}

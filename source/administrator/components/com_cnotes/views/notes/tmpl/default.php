@@ -11,6 +11,9 @@ defined('_JEXEC') or die('Restricted access');
 
 $listDir = $this->escape($this->state->get('list.direction'));
 $listOrder = $this->escape($this->state->get('list.ordering'));
+
+JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
+
 ?>
 <form name="adminForm" id="adminForm" method="post"
       action="<?php echo JRoute::_('index.php?option=com_cnotes&view=notes'); ?>">
@@ -70,4 +73,8 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
     <?php echo JHtml::_('form.token'); ?>
 </form>
 
+<?php echo cnotesHelperUtils::ad(); ?>
+
 <?php echo cnotesHelperUtils::footer(); ?>
+
+
