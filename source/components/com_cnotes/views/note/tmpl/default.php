@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 $document = JFactory::getDocument();
 $document->addStyleSheet('/media/com_cnotes/css/cnotes.css');
 ?>
-
+<h2><?php echo JText::_('COM_CNOTES_EDIT_NOTE'); ?></h2>
 <form name="adminForm" action="<?php JRoute::_('index.php?option=com_cnotes&view=note&id='.(int)$this->item->id); ?>" method="post">
     <button class="rgt">
         <?php echo JText::_('COM_CNOTES_SAVE_NOTE'); ?>
