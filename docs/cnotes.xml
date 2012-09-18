@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <bookinfo>
+    <title>CNotes - make a note! - User's Guide</title>
+
+    <author>
+      <firstname>Daniel</firstname>
+
+      <surname>Dimitrov</surname>
+
+      <affiliation>
+        <orgname>compojoom.com</orgname>
+      </affiliation>
+    </author>
+
+    <pubdate>31.07.2012</pubdate>
+
+    <legalnotice>
+      <para>Permission is granted to copy, distribute and/or modify this
+      document under the terms of the GNU Free Documentation License, Version
+      1.3 or any later version published by the Free Software Foundation; with
+      no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A
+      copy of the license is included in the appendix entitled "The GNU Free
+      Documentation License".</para>
+    </legalnotice>
+
+    <abstract>
+      <para>This book covers the use of the CNotes extension. It does not
+      cover any other extension available on compojoom.com .</para>
+    </abstract>
+  </bookinfo>
+
+  <article>
+    <para><revhistory>
+        <revision>
+          <revnumber>CNotes - 1.0.0 - Revision 0.1</revnumber>
+
+          <date>18.09.2012</date>
+
+          <author>
+            <firstname>Daniel</firstname>
+
+            <surname>Dimitrov</surname>
+          </author>
+
+          <revremark>1st Draft</revremark>
+        </revision>
+      </revhistory></para>
+  </article>
+
+  <chapter>
+    <title>Introduction</title>
+
+    <section>
+      <title>Introducing CNotes</title>
+
+      <para>CNotes is a Joomla! extension &amp; module that lets your users
+      create private notes on each &amp; every page of your site.</para>
+
+      <para>CNotes was developed as part of the "<ulink
+      url="http://dothewebinar.com">Joomla extension development
+      masterclass</ulink>" in July 2012. Together with our students we've
+      explored the Joomla framework and have build something that is hopefully
+      useful to you as well! If you want to learn how to build Joomla
+      extensions on your own, maybe you should visit dothewebinar.com and book
+      the next free webinar!</para>
+    </section>
+
+    <section>
+      <title>Features</title>
+
+      <para><itemizedlist>
+          <listitem>
+            <para>add private notes on every page of the site (provided that
+            the cnotes is published on that pages)</para>
+          </listitem>
+
+          <listitem>
+            <para>notes are added without page refresh</para>
+          </listitem>
+
+          <listitem>
+            <para>user can add/edit/delete notes in the frontend</para>
+          </listitem>
+
+          <listitem>
+            <para>administrator can view/edit/delete notes in the
+            backend</para>
+          </listitem>
+        </itemizedlist></para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Installation and updates</title>
+
+    <para>Installing CNotes is no different than installing any other Joomla!™
+    extension on your site. You can read the complete instructions for
+    installing Joomla!™ extensions on the <ulink
+    url="http://help.joomla.org/content/view/1476/235/">official help
+    page</ulink> .Throughout this chapter we assume that you are familiar with
+    these instructions and we will not duplicate them.</para>
+
+    <section>
+      <title>Getting the installation packages</title>
+
+      <para>You can download the latest installation packages by visiting our
+      site at <ulink
+      url="https://compojoom.com">https://compojoom.com</ulink>. Go to
+      Download -&gt; CNotes menu item. The releases are listed in descending
+      order with the newest release always on top. Click on the release number
+      and then download the ZIP package.</para>
+
+      <para>The installation package can be installed on Joomla 2.5 . You can
+      use the installation package to update from previous version as well;
+      just install it, without uninstalling the old package.</para>
+    </section>
+
+    <section>
+      <title>Updating to the latest version</title>
+
+      <section>
+        <title>Checking for the latest version and upgrading</title>
+
+        <para>You can easily check for the latest published version of Cnotes
+        by visiting https://compojoom.com and going to
+        Downloads-&gt;CNotes.</para>
+
+        <para>Updating CNotes to the latest version is by no means different
+        than installing the component! You do not have to uninstall the
+        previous version; in fact, you are discouraged from doing so. Simply
+        follow the installation instructions so as to install the latest
+        CNotes version over the existing installation. That's all! All your
+        settings are preserved.</para>
+      </section>
+
+      <section>
+        <title>Live update</title>
+
+        <para>There is also an alternate update path, if your server supports
+        it. It is called the "Live Update" feature (thanks to Nicholas K.
+        Dionysopoulos from http://akeebabackup.com) . Whenever you click on
+        the Live update button in the Navigation toolbar, it will
+        automatically check for the existence of an updated version and it
+        will notify you. Clicking on the update button allows you to perform a
+        live update without further interaction. Do note that if your server
+        is protected by a firewall you'll have to enable port 80 and 443 TCP
+        traffic to https://compojoom.com for this feature to work
+        properly.</para>
+
+        <para><graphic fileref="images/live-update.PNG"/></para>
+      </section>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Using the CNotes component</title>
+
+    <para>Congrats! It seems that you have the first step - the installation
+    behind you! Now to allow your users to add notes you should go to
+    Extensions -&gt; Module Manager and here you should publish the CNotes
+    module. The module should not be published to the general public, but to
+    your registered users!</para>
+
+    <section>
+      <title>The Backend</title>
+
+      <para>Once logged into your Joomla backend you can access the component
+      by clicking on Components -&gt; CNotes . You'll be presented with a list
+      of all notes entered by your users. Using the edit &amp; delete buttons
+      at the top you can edit &amp; delete any note you want. </para>
+
+      <graphic fileref="images/cnotes-notes-backend.PNG"/>
+    </section>
+
+    <section>
+      <title>Frontend</title>
+
+      <para>If you have the CNotes module published your users will be able to
+      write notes and view the notes that they wrote on any page. Now on each
+      page they can see only the notes that they wrote there. If you want to
+      make their live easier you can provide them with a link to all their
+      notes. To do so you have to create a new menu link. In the Joomla
+      backend go to Menus -&gt; Your-menu-&gt; "Add new menu item" . In the
+      "menu item type" field click on Select and then click on "User notes".
+      (make this link available only to user registered users). Now when you
+      click on the link you should see screen similar to this one (provided
+      that you've written any notes)</para>
+
+      <graphic fileref="images/cnotes-your-notes-frontend.PNG"/>
+
+      <para>Clicking on the delete button will delete the note. Clicking on
+      the title will send the user to the page where he wrote the note. And
+      clicking on the title will bring them to a screen where they can edit
+      their note: </para>
+
+      <graphic fileref="images/cnotes-edit-note-frontend.PNG"/>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Using the CNotes Module</title>
+
+    <para>The CNotes module allows your users to create new notes in the
+    frontend of your sites &amp; it also gives them a quick look at the notes
+    that they've written on the page that they are currently on. To publish
+    the module you'll have to login into your Joomla Backend -&gt; go to
+    Extension manager -&gt; Module manager. Here click on new and then look
+    for "CNotes - user notes" -&gt; select the desired position and publish
+    the module to your registered users. </para>
+
+    <graphic fileref="images/cnotes-add-new-note.PNG"/>
+
+    <graphic fileref="images/cnotes-note-on-page.PNG"/>
+
+    <para>If the user has a note on the current page the module will show him
+    that note. If you click on the title of the note you'll be presented with
+    an edit screen and you'll be able to modify your note. </para>
+  </chapter>
+
+  <chapter>
+    <title>Tips &amp; tricks</title>
+
+    <para/>
+
+    <section>
+      <title>SEF &amp; non-SEF urls</title>
+
+      <para>When the user browses to a specific page we try to show him the
+      notes that he has on that page. We do that by comparing the current URL
+      with anything in the CNotes table that matches that URL &amp; user id.
+      That works in 99% of the cases, but if your URL scheme changes for some
+      reason (like you go from non-SEF URL to SEF URL, or you start to use a
+      new SEF extension) the module won't be able to properly match the notes
+      for the page. However -&gt; the user will be still able to see the notes
+      in the "User notes" view of the component. </para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Where to go from here?</title>
+
+    <para>If you encounter any problems or have any suggestions don't hesitate
+    to contact us. We provide top-notch <ulink
+    url="https://compojoom.com/forum/cmc-mailchimp-for-joomla">forum
+    support</ulink>. Just drop us a line!</para>
+
+    <para>If you know a little bit of PHP &amp; MySQL maybe it is time to
+    become a Joomla developer? The CNotes extension was developed during our
+    webinar "<ulink url="http://dothewebinar.com">Joomla extension development
+    masterclass</ulink>" - why don't you <ulink
+    url="http://dothewebinar.com">join the next class</ulink> and learn how to
+    develop your own notes extension???</para>
+  </chapter>
+</book>
