@@ -13,6 +13,7 @@
     <taskdef name="extfile" classname="phingext.listJPackageFilesTask"/>
     <taskdef name="gitversion" classname="phingext.GitVersionTask"/>
     <taskdef name="explode" classname="phingext.explodeTask"/>
+    <taskdef name="indexhtml" classname="phingext.indexHtmlTask" />
 
     <import file="plugin.xml" optional="true"/>
     <import file="module.xml" optional="true"/>
@@ -114,6 +115,10 @@
                 </replacetokens>
             </filterchain>
         </copy>
+
+
+        <echo message="Now add the index.html files!" />
+        <indexhtml dir="${destination.dir}" />
 
         <extfile file="${destination.dir}/${component.name}.xml"
                  sourceDir="${dirs.source}"

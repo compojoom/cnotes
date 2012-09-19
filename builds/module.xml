@@ -72,6 +72,9 @@
             </filterchain>
         </copy>
 
+        <echo message="Now add the index.html files!" />
+        <indexhtml dir="${destination.dir}${admin_folder}/modules/${module}/" />
+
         <extfile file="${destination.dir}${admin_folder}/modules/${module}/${module}.xml"
                  sourceDir="${dirs.source}${admin_folder}/modules/${module}/"
                  component="${module}"
