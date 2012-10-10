@@ -9,8 +9,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-// Include the syndicate functions only once
-require_once dirname(__FILE__).'/helper.php';
+JLoader::discover('modCnotes', dirname(__FILE__) );
 
 $items = &modCnotesHelper::getList($params);
 

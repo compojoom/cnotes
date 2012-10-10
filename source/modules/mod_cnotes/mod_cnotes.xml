@@ -19,6 +19,9 @@
     <languages folder="language">
         ##FRONTENDLANGUAGEFILES##
     </languages>
+    <media destination="@@MODULENAME@@" folder="media/@@MODULENAME@@">
+        ##MEDIAPACKAGEFILES##
+    </media>
     <config>
         <fields name="params">
             <fieldset name="advanced">

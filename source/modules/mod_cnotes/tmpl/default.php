@@ -46,7 +46,7 @@ $document->addScriptDeclaration($script);
         <?php endif; ?>
     </div>
 
-    <span class="cnotes-toggle"> Add a new note</span>
+    <span class="cnotes-toggle"> <?php echo JText::_('MOD_CNOTES_ADD_A_NEW_NOTE'); ?></span>
     <form class="cnotes-form" action="index.php?option=com_cnotes&format=raw&task=note.add" method="post">
         <fieldset>
             <label for="title-<?php echo $id; ?>">
@@ -58,7 +58,7 @@ $document->addScriptDeclaration($script);
             </label>
             <textarea rows="5" cols="5" id="note-<?php echo $id; ?>" class="required" name="jform[note]"></textarea>
 
-            <input type="submit" value="<?php echo JText::_('COM_CNOTES_SAVE_NOTE'); ?>" />
+            <input type="submit" value="<?php echo JText::_('MOD_CNOTES_SAVE_NOTE'); ?>" />
 
         </fieldset>
 
