@@ -10,6 +10,6 @@
 defined('_JEXEC') or die('Restricted access');
 
 
-class cnotesController extends JController {
+class cnotesController extends JControllerLegacy {
     protected $default_view = 'notes';
 }

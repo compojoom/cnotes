@@ -9,8 +9,12 @@
 
 defined('_JEXEC') or die('Restricted access');
 
+// Access check.
+if (!JFactory::getUser()->authorise('core.manage', 'com_cnotes')) {
+	throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 404);
+}
 
-jimport('joomla.application.component.controller');
+jimport('joomla.application.component.controllerlegacy');
 // register the helpers
 JLoader::discover('cnotesHelper', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/');
 //load live update
@@ -31,6 +35,6 @@ if($input->get('view') == 'liveupdate') {
     return;
 }
 
-$controller = JController::getInstance('cnotes');
+$controller = JControllerLegacy::getInstance('cnotes');
 $controller->execute($input->get('task'));
 $controller->redirect();

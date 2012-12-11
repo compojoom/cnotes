@@ -9,7 +9,15 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-class cnotesControllerNote extends JController {
+jimport('joomla.application.component.controllerlegacy');
+
+class cnotesControllerNote extends JControllerLegacy {
+
+	protected function allowAdd()
+	{
+		$user = JFactory::getUser();
+		return $user->authorise('core.create', 'com_cnotes');
+	}
 
     /**
      * TODO: make better error handling when the token has expired
@@ -20,11 +28,20 @@ class cnotesControllerNote extends JController {
         $user = JFactory::getUser();
         $status = 'OK';
 
+		// check for create permission
+		if(!$this->allowAdd()) {
+			$response = array('status' => 'FAILURE', 'message' => JText::_('COM_CNOTES_YOU_NEED_CREATE_PERMISSION'));
+
+			echo json_encode($response);
+			jexit();
+		}
+
         // unregistered user - we don't allow that!
         if(!$user->get('id')) {
             $response = array('status' => 'FAILURE', 'message' => JText::_('COM_CNOTES_YOU_NEED_TO_BE_REGISTERED'));
 
             echo json_encode($response);
+			jexit();
         }
 
         $row = JTable::getInstance('notes', 'cnotesTable');

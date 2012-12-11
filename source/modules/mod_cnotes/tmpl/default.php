@@ -27,46 +27,50 @@ $document->addScriptDeclaration($script);
 
 <div id="cnotes-<?php echo $id; ?>" class="cnotes">
     <?php if ($user->get('id')) : ?>
-    <div class="cnotes-notes">
-        <?php if (count($items)) : ?>
-            <?php foreach ($items as $item) : ?>
-            <div>
-                <span class="title">
-                    <a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.edit&id=' . $item->id); ?>">
-                        <?php echo $item->title; ?>
-                    </a>
-                </span>
-                <?php echo $item->note; ?>
-            </div>
-            <?php endforeach; ?>
-        <?php else : ?>
-            <span class="cnotes-nothing">
-                <?php echo JText::_('MOD_CNOTES_NO_NOTES'); ?>
-            </span>
-        <?php endif; ?>
-    </div>
+		<?php if($user->authorise('core.create', 'com_cnotes')) : ?>
+		<div class="cnotes-notes">
+			<?php if (count($items)) : ?>
+				<?php foreach ($items as $item) : ?>
+				<div>
+					<span class="title">
+						<a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.edit&id=' . $item->id); ?>">
+							<?php echo $item->title; ?>
+						</a>
+					</span>
+					<?php echo $item->note; ?>
+				</div>
+				<?php endforeach; ?>
+			<?php else : ?>
+				<span class="cnotes-nothing">
+					<?php echo JText::_('MOD_CNOTES_NO_NOTES'); ?>
+				</span>
+			<?php endif; ?>
+		</div>
 
-    <span class="cnotes-toggle"> <?php echo JText::_('MOD_CNOTES_ADD_A_NEW_NOTE'); ?></span>
-    <form class="cnotes-form" action="index.php?option=com_cnotes&format=raw&task=note.add" method="post">
-        <fieldset>
-            <label for="title-<?php echo $id; ?>">
-                <?php echo JText::_('MOD_CNOTES_TITLE'); ?>*:
-            </label>
-            <input type="text" id="title-<?php echo $id; ?>" class="required" name="jform[title]"/>
-            <label for="note-<?php echo $id; ?>">
-                <?php echo JText::_('MOD_CNOTES_NOTE'); ?>*:
-            </label>
-            <textarea rows="5" cols="5" id="note-<?php echo $id; ?>" class="required" name="jform[note]"></textarea>
+		<span class="cnotes-toggle"> <?php echo JText::_('MOD_CNOTES_ADD_A_NEW_NOTE'); ?></span>
+		<form class="cnotes-form" action="index.php?option=com_cnotes&format=raw&task=note.add" method="post">
+			<fieldset>
+				<label for="title-<?php echo $id; ?>">
+					<?php echo JText::_('MOD_CNOTES_TITLE'); ?>*:
+				</label>
+				<input type="text" id="title-<?php echo $id; ?>" class="required" name="jform[title]"/>
+				<label for="note-<?php echo $id; ?>">
+					<?php echo JText::_('MOD_CNOTES_NOTE'); ?>*:
+				</label>
+				<textarea rows="5" cols="5" id="note-<?php echo $id; ?>" class="required" name="jform[note]"></textarea>
 
-            <input type="submit" value="<?php echo JText::_('MOD_CNOTES_SAVE_NOTE'); ?>" />
+				<input type="submit" value="<?php echo JText::_('MOD_CNOTES_SAVE_NOTE'); ?>" />
 
-        </fieldset>
+			</fieldset>
 
 
-        <input type="hidden" name="jform[url]" value="<?php echo modCnoteshelper::getUrl(); ?>"/>
-        <?php echo JHtml::_('form.token'); ?>
-        <div class="clear"></div>
-    </form>
+			<input type="hidden" name="jform[url]" value="<?php echo modCnoteshelper::getUrl(); ?>"/>
+			<?php echo JHtml::_('form.token'); ?>
+			<div class="clear"></div>
+    	</form>
+		<?php else : ?>
+			<?php echo JText::_('MOD_CNOTES_CREATE_PERMISSIONS_MISSING'); ?>
+		<?php endif; ?>
     <?php else : ?>
     <?php // don't show the module to people that are not logged in ?>
     <?php echo JText::_('MOD_CNOTES_WARNING_REGISTERED'); ?>

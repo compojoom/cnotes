@@ -9,9 +9,9 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.view');
+jimport('joomla.application.component.viewlegacy');
 
-class cnotesViewNote extends JView {
+class cnotesViewNote extends JViewLegacy {
 
     public function display() {
         $this->form = $this->get('form');

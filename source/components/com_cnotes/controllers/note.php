@@ -15,6 +15,40 @@ class cnotesControllerNote extends JControllerForm {
 
     protected $view_list = 'notes';
 
+	protected function allowEdit($data = array(), $key = 'id')
+	{
+		// Initialise variables.
+		$recordId	= (int) isset($data[$key]) ? $data[$key] : 0;
+		$user		= JFactory::getUser();
+		$userId		= $user->get('id');
+
+
+		// check edit.own
+		// First test if the permission is available.
+		if ($user->authorise('core.edit.own', 'com_cnotes')) {
+			// Now test the owner is the user.
+			$ownerId	= (int) isset($data['created_by']) ? $data['created_by'] : 0;
+			if (empty($ownerId) && $recordId) {
+				// Need to do a lookup from the model.
+				$record		= $this->getModel()->getItem($recordId);
+
+				if (empty($record)) {
+					return false;
+				}
+
+				$ownerId = $record->created_by;
+			}
+
+			// If the owner matches 'me' then do the test.
+			if ($ownerId == $userId) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+
 
     /**
      * Removes a note

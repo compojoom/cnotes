@@ -13,21 +13,14 @@ jimport('joomla.application.component.controllerform');
 
 class CnotesControllerNote extends JControllerForm {
 
-
-    public function save($key = null, $urlVar = null) {
-        // Check for request forgeries.
-        JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
-
-        // Initialise variables.
-        $app   = JFactory::getApplication();
-        $lang  = JFactory::getLanguage();
-        $model = $this->getModel();
-        $table = $model->getTable();
-        $data  = JRequest::getVar('jform', array(), 'post', 'array');
-        $checkin = property_exists($table, 'checked_out');
-        $context = "$this->option.edit.$this->context";
-        $task = $this->getTask();
-
-//        ....
-    }
+	/**
+	 * override allowEdit as we don't have core.edit...
+	 * @param array $data
+	 * @param string $key
+	 * @return bool
+	 */
+	protected function allowEdit($data = array(), $key = 'id')
+	{
+		return JFactory::getUser()->authorise('core.edit.edit', $this->option);
+	}
 }

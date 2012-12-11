@@ -24,6 +24,35 @@ class cnotesModelNote extends JModelAdmin {
         return $form;
     }
 
+	protected function canDelete($record)
+	{
+		$recordId	= (int) isset($record->id) ? $record->id : 0;
+		$user		= JFactory::getUser();
+		$userId		= $user->get('id');
+
+		// check for delete.own.
+		// First test if the permission is available.
+		if ($user->authorise('core.delete.own', 'com_cnotes')) {
+			// Now test the owner is the user.
+			$ownerId	= (int) isset($record->created_by) ? $record->created_by : 0;
+			if (empty($ownerId) && $recordId) {
+
+				if (empty($record)) {
+					return false;
+				}
+
+				$ownerId = $record->created_by;
+			}
+
+			// If the owner matches 'me' then do the test.
+			if ($ownerId == $userId) {
+				return true;
+			}
+		}
+
+
+	}
+
     public function loadFormData() {
         $data = JFactory::getApplication()->getUserState('com_cnotes.edit.note.data', array());
 

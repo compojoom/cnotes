@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
 ?>
 
-<form name="adminForm" action="<?php JRoute::_('index.php?option=com_cnotes&view=note'); ?>" method="post">
+<form id="adminForm" name="adminForm" action="<?php JRoute::_('index.php?option=com_cnotes&view=note'); ?>" method="post">
     <div class="width-60 fltlft">
         <fieldset class="adminform">
             <ul class="adminformlist">

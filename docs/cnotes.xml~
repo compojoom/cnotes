@@ -3,7 +3,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <book>
   <bookinfo>
-    <title>CMC - Mailchimp® for Joomla™ - User's Guide</title>
+    <title>CNotes - make a note! - User's Guide</title>
 
     <author>
       <firstname>Daniel</firstname>
@@ -27,19 +27,17 @@
     </legalnotice>
 
     <abstract>
-      <para>This book covers the use of the CMC - <ulink
-      url="https://mailchimp.com/?pid=compojoom&amp;source=website">Mailchimp</ulink>®
-      for Joomla™ extension. It does not cover any other extension available
-      on compojoom.com .</para>
+      <para>This book covers the use of the CNotes extension. It does not
+      cover any other extension available on compojoom.com .</para>
     </abstract>
   </bookinfo>
 
   <article>
     <para><revhistory>
         <revision>
-          <revnumber>CMC - 1.0.0 - Revision 0.1</revnumber>
+          <revnumber>CNotes - 1.0.0 - Revision 0.1</revnumber>
 
-          <date>31.07.2012</date>
+          <date>18.09.2012</date>
 
           <author>
             <firstname>Daniel</firstname>
@@ -56,29 +54,40 @@
     <title>Introduction</title>
 
     <section>
-      <title>Introducing CMC</title>
+      <title>Introducing CNotes</title>
 
-      <para>CMC is a Joomla extension that integrates with the <ulink
-      url="https://mailchimp.com/?pid=compojoom&amp;source=website">Mailchimp</ulink>
-      API. Its functionality includes, but is not limited to displaying your
-      Mailchimp lists and users directly in your Joomla backend. It comes with
-      a Joomla module that will let you easily create newsletter subscription
-      forms on your site.</para>
+      <para>CNotes is a Joomla! extension &amp; module that lets your users
+      create private notes on each &amp; every page of your site.</para>
+
+      <para>CNotes was developed as part of the "<ulink
+      url="http://dothewebinar.com">Joomla extension development
+      masterclass</ulink>" in July 2012. Together with our students we've
+      explored the Joomla framework and have build something that is hopefully
+      useful to you as well! If you want to learn how to build Joomla
+      extensions on your own, maybe you should visit dothewebinar.com and book
+      the next free webinar!</para>
     </section>
 
     <section>
-      <title>Indicative uses</title>
+      <title>Features</title>
 
       <para><itemizedlist>
           <listitem>
-            <para>Newsletter subscription. CMC makes it really easy to publish
-            your Mailchimp subscription form on a Joomla based website and
-            doesn't require you to create or copy/paste any HTML code.</para>
+            <para>add private notes on every page of the site (provided that
+            the cnotes is published on that pages)</para>
           </listitem>
 
           <listitem>
-            <para>Access information about your Mailchimp lists and users
-            right in your Joomla backend</para>
+            <para>notes are added without page refresh</para>
+          </listitem>
+
+          <listitem>
+            <para>user can add/edit/delete notes in the frontend</para>
+          </listitem>
+
+          <listitem>
+            <para>administrator can view/edit/delete notes in the
+            backend</para>
           </listitem>
         </itemizedlist></para>
     </section>
@@ -87,7 +96,7 @@
   <chapter>
     <title>Installation and updates</title>
 
-    <para>Installing CMC is no different than installing any other Joomla!™
+    <para>Installing CNotes is no different than installing any other Joomla!™
     extension on your site. You can read the complete instructions for
     installing Joomla!™ extensions on the <ulink
     url="http://help.joomla.org/content/view/1476/235/">official help
@@ -100,7 +109,7 @@
       <para>You can download the latest installation packages by visiting our
       site at <ulink
       url="https://compojoom.com">https://compojoom.com</ulink>. Go to
-      Download -&gt; CMC menu item. The releases are listed in descending
+      Download -&gt; CNotes menu item. The releases are listed in descending
       order with the newest release always on top. Click on the release number
       and then download the ZIP package.</para>
 
@@ -115,15 +124,16 @@
       <section>
         <title>Checking for the latest version and upgrading</title>
 
-        <para>You can easily check for the latest published version of CMC by
-        visiting https://compojoom.com and going to Downloads-&gt;CMC.</para>
+        <para>You can easily check for the latest published version of Cnotes
+        by visiting https://compojoom.com and going to
+        Downloads-&gt;CNotes.</para>
 
-        <para>Updating CMC to the latest version is by no means different than
-        installing the component! You do not have to uninstall the previous
-        version; in fact, you are discouraged from doing so. Simply follow the
-        installation instructions so as to install the latest CMC version over
-        the existing installation. That's all! All your settings are
-        preserved.</para>
+        <para>Updating CNotes to the latest version is by no means different
+        than installing the component! You do not have to uninstall the
+        previous version; in fact, you are discouraged from doing so. Simply
+        follow the installation instructions so as to install the latest
+        CNotes version over the existing installation. That's all! All your
+        settings are preserved.</para>
       </section>
 
       <section>
@@ -146,190 +156,68 @@
   </chapter>
 
   <chapter>
-    <title>Using the CMC component</title>
+    <title>Using the CNotes component</title>
 
     <para>Congrats! It seems that you have the first step - the installation
-    behind you! Now let us quickly sum up what you need to do after the
-    installation. Go to the extensions dashboard -&gt; click on Options in the
-    top right -&gt; provide your <ulink
-    url="https://mailchimp.com/?pid=compojoom&amp;source=website">Mailchimp</ulink>
-    API key and enter a webhooks key. Copy the webhooks URL to your lists
-    settings on Mailchimp! Now the component is all setup and you can run your
-    first synchronisation (go to the list view). Once you've run the
-    synchronisation and if everything went fine you can go ahead and publish
-    the subscription module and let users subscribe.</para>
-
-    <para>This was the absolute minimum of what you need to do. If you are an
-    advanced user the steps most probably didn't scare you. If on the other
-    hand you didn't understand what to do let us look at each step in
-    details.</para>
+    behind you! Now to allow your users to add notes you should go to
+    Extensions -&gt; Module Manager and here you should publish the CNotes
+    module. The module should not be published to the general public, but to
+    your registered users!</para>
 
     <section>
-      <title>The Dashboard</title>
+      <title>The Backend</title>
 
-      <para>The dashboard provides you with a quick access to each view of the
-      component. You also have a newsfeed module on the right that will
-      display the latest information about the component taken right out of
-      our blog.</para>
+      <para>Once logged into your Joomla backend you can access the component
+      by clicking on Components -&gt; CNotes . You'll be presented with a list
+      of all notes entered by your users. Using the edit &amp; delete buttons
+      at the top you can edit &amp; delete any note you want. </para>
 
-      <graphic fileref="images/dashboard.PNG"/>
+      <graphic fileref="images/cnotes-notes-backend.PNG"/>
     </section>
 
     <section>
-      <title>Options</title>
+      <title>Frontend</title>
 
-      <para>From the top right of your dashboard you can access the component
-      Options.</para>
+      <para>If you have the CNotes module published your users will be able to
+      write notes and view the notes that they wrote on any page. Now on each
+      page they can see only the notes that they wrote there. If you want to
+      make their live easier you can provide them with a link to all their
+      notes. To do so you have to create a new menu link. In the Joomla
+      backend go to Menus -&gt; Your-menu-&gt; "Add new menu item" . In the
+      "menu item type" field click on Select and then click on "User notes".
+      (make this link available only to user registered users). Now when you
+      click on the link you should see screen similar to this one (provided
+      that you've written any notes)</para>
 
-      <para><graphic fileref="images/options.PNG"/>The options are divided
-      into 2 tabs - "Main Settings" &amp; "Permissions" . The main settings is
-      the area where you need to provide your API keys (we'll discuss that in
-      a second) . Permissions is the place where you would define who is able
-      to access the component in the backend. We use the standard Joomla ACL
-      for that so it is best that you read the documentation available at
-      <ulink
-      url="http://docs.joomla.org/Access_Control_List/1.6-2.5/Tutorial">http://docs.joomla.org</ulink>
-      .</para>
+      <graphic fileref="images/cnotes-your-notes-frontend.PNG"/>
 
-      <section>
-        <title>Mailchimp API key</title>
+      <para>Clicking on the delete button will delete the note. Clicking on
+      the title will send the user to the page where he wrote the note. And
+      clicking on the title will bring them to a screen where they can edit
+      their note: </para>
 
-        <para>In order for the component to work you will need to provide your
-        Mailchimp API key. To get the key log into your profile on
-        mailchimp.com . Then on the top go your account -&gt; API keys &amp;
-        Authorized Apps.</para>
-
-        <graphic fileref="images/mailchimp_api_key.png"/>
-
-        <para>You will be presented with a list a keys similar to this
-        one</para>
-
-        <graphic fileref="images/mailchimp_api_keys.PNG"/>
-
-        <para>Select the Mailchimp key (or if it doesn't exist create one!),
-        copy it and then paste it in the Mailchimp API key in the CMC
-        configuration settings.</para>
-      </section>
-
-      <section>
-        <title>Webhooks URL</title>
-
-        <para>Webhooks are a way for <ulink
-        url="https://mailchimp.com/?pid=compojoom&amp;source=website">Mailchimp</ulink>
-        to send information related to your lists and users to your site.
-        Webhooks allows CMC to offer a 2 way synchronisation of lists. In
-        simple English this means that - whenever a user unsubscribes on
-        Mailchimp - this will be reflected in the backend of your website.
-        Whenever you modify an user on mailchimp.com -&gt; the modified
-        information will be also show in your backend.</para>
-
-        <para>In order for the webhooks support to work you need to provide
-        the URL to your site in the Mailchimp list settings. Since this URL is
-        publicly available it means that everyone would be able to send data
-        to your site. To prevent this we automatically generate a secret key
-        for your site and append it to the url. The key is like a password
-        -&gt; if someone tries to call your webhooks URL without the key -&gt;
-        the system will just do nothing. On the other side - if the request to
-        that URL has the correct webhooks key, then the system will proceed
-        with the processing of the request.</para>
-
-        <para>So, long story short - copy the URL from the webhooks URL field
-        and give it to mailchimp:</para>
-
-        <important>
-          <para>Don't forget to save the settings! If you don't do so the key
-          generated for the webhook URL won't be saved and mailchimp won't be
-          able to properly authenticate on your site!</para>
-        </important>
-
-        <graphic fileref="images/lists.PNG"/>
-
-        <para>Once you've reached the list view at the top you'll see a bar
-        with settings related to your list. Click on "List tools" -&gt;
-        "Webhooks" as shown in the screen shot below</para>
-
-        <graphic fileref="images/webhooks-select.png"/>
-
-        <para>Now you should be presented with a screen similar to this
-        one:</para>
-
-        <graphic fileref="images/webhooks-add.PNG"/>
-
-        <para>Provide the copied URL in the "Callback URL" section and click
-        on "Add Webhook". If your website is reachable through the web (not an
-        intranet or localhost) you should see a message that everything went
-        fine.</para>
-      </section>
-    </section>
-
-    <section>
-      <title>Lists</title>
-
-      <para>Currently the Lists view is really simple. We obviously show you
-      the lists you have and some additional information about each list. On
-      the top right of the screen you'll see a First Sync button. You need to
-      click this one the first time after your installation. This will
-      download all your lists and users from <ulink
-      url="https://mailchimp.com/?pid=compojoom&amp;source=website">Mailchimp</ulink>.</para>
-    </section>
-
-    <section>
-      <title>Users</title>
-
-      <para>The user screen allows you to see all the users subscribed to all
-      of your lists.</para>
-
-      <graphic fileref="images/users.PNG"/>
-
-      <para>By clicking on the email of an user you will be presented with a
-      view that has more information about him. Similar to this one:</para>
-
-      <graphic fileref="images/user.PNG"/>
-
-      <para>You can modify the user email, names and status. You are also
-      presented with the Mailchimp group and interest fields in raw form. (in
-      a future version we plan to add support for editing them as well)</para>
+      <graphic fileref="images/cnotes-edit-note-frontend.PNG"/>
     </section>
   </chapter>
 
   <chapter>
-    <title>Using the CMC Module</title>
+    <title>Using the CNotes Module</title>
 
-    <para>When you install the CMC component, we also install a frontend
-    module that you can use to display a newsletter subscription form on your
-    site. Go to Extensions -&gt; Module Manager and in the list find the CMC -
-    Newsletter subscription module.</para>
+    <para>The CNotes module allows your users to create new notes in the
+    frontend of your sites &amp; it also gives them a quick look at the notes
+    that they've written on the page that they are currently on. To publish
+    the module you'll have to login into your Joomla Backend -&gt; go to
+    Extension manager -&gt; Module manager. Here click on new and then look
+    for "CNotes - user notes" -&gt; select the desired position and publish
+    the module to your registered users. </para>
 
-    <para><note>
-        <para>If you don't find the module in the list click on New and then
-        select the CMC - Newsletter subscription module</para>
-      </note>The basic parameters of the module should look something similar
-    to this:</para>
+    <graphic fileref="images/cnotes-add-new-note.PNG"/>
 
-    <graphic fileref="images/mod_cmc_basic_options.PNG"/>
+    <graphic fileref="images/cnotes-note-on-page.PNG"/>
 
-    <para>You need to select a list from the drop down field. Once you do this
-    the page will refresh and you'll be presented with the fields and interest
-    groups options for your list.</para>
-
-    <graphic fileref="images/mod_cmc_group_options.PNG"/>
-
-    <para>Select the fields you want to show in the frontend and click on save
-    once ready.</para>
-
-    <para><important>
-        <para>Please make sure to select all the fields that you've marked as
-        required in Mailchimp. Failure to do so will result in not working
-        subscriptions as <ulink
-        url="https://mailchimp.com/?pid=compojoom&amp;source=website">Mailchimp</ulink>
-        will refuse to subscribe the users to the list, because some fields
-        are missing.</para>
-      </important>Depending on the fields and interest groups that you've
-    selected the module will display different options in the frontend. Here
-    is a screen shot of a module that has only the Email, First and Last name
-    fields selected</para>
-
-    <graphic fileref="images/mod_cmc_frontend.PNG"/>
+    <para>If the user has a note on the current page the module will show him
+    that note. If you click on the title of the note you'll be presented with
+    an edit screen and you'll be able to modify your note. </para>
   </chapter>
 
   <chapter>
@@ -338,12 +226,16 @@
     <para/>
 
     <section>
-      <title>Styling the CMC module</title>
+      <title>SEF &amp; non-SEF urls</title>
 
-      <para>The module frontend presentation doesn't include any CSS file.
-      We've left the presentation to your template. However if you are not
-      happy with the way the module is styled you can always add the CSS rule
-      to your template CSS file.</para>
+      <para>When the user browses to a specific page we try to show him the
+      notes that he has on that page. We do that by comparing the current URL
+      with anything in the CNotes table that matches that URL &amp; user id.
+      That works in 99% of the cases, but if your URL scheme changes for some
+      reason (like you go from non-SEF URL to SEF URL, or you start to use a
+      new SEF extension) the module won't be able to properly match the notes
+      for the page. However -&gt; the user will be still able to see the notes
+      in the "User notes" view of the component. </para>
     </section>
   </chapter>
 
@@ -354,5 +246,12 @@
     to contact us. We provide top-notch <ulink
     url="https://compojoom.com/forum/cmc-mailchimp-for-joomla">forum
     support</ulink>. Just drop us a line!</para>
+
+    <para>If you know a little bit of PHP &amp; MySQL maybe it is time to
+    become a Joomla developer? The CNotes extension was developed during our
+    webinar "<ulink url="http://dothewebinar.com">Joomla extension development
+    masterclass</ulink>" - why don't you <ulink
+    url="http://dothewebinar.com">join the next class</ulink> and learn how to
+    develop your own notes extension???</para>
   </chapter>
 </book>

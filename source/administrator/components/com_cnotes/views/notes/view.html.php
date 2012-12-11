@@ -9,9 +9,9 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.view');
+jimport('joomla.application.component.viewlegacy');
 
-class cnotesViewNotes extends JView {
+class cnotesViewNotes extends JViewLegacy {
 
     public function display($tpl = null) {
         $this->state = $this->get('state');
@@ -25,6 +25,10 @@ class cnotesViewNotes extends JView {
     public function addToolbar() {
         JToolBarHelper::title(JText::_('COM_CNOTES_NOTES'),'note');
 
+		if (JFactory::getUser()->authorise('core.admin', 'com_cnotes')) {
+			JToolBarHelper::preferences('com_cnotes');
+			JToolBarHelper::divider();
+		}
         JToolBarHelper::editList('note.edit');
         JToolBarHelper::deleteList('COM_CNOTES_ARE_YOU_SURE_DELETE_THIS_NOTE','notes.delete');
     }

@@ -18,7 +18,7 @@ var cnotes = new Class({
         this.setOptions(options);
 
         var el = document.id(this.options.container);
-        if (el) {
+        if (el && el.getElement('form')) {
             this.container = el;
             this.setupForm();
             this.setupAnim();
@@ -48,7 +48,12 @@ var cnotes = new Class({
                         });
                         div.inject(notes).highlight('#F3FF35');
                         form.reset();
-                    }
+                    } else if(data.status == 'FAILURE') {
+						new Element('div', {
+							html: data.message,
+							'class': 'alert'
+						}).inject(notes).highlight('#FF0000');
+					}
                 }
             });
 

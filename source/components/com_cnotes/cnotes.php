@@ -21,8 +21,8 @@ $jlang->load('com_cnotes', JPATH_SITE, $jlang->getDefault(), true);
 $jlang->load('com_cnotes', JPATH_SITE, null, true);
 
 
-jimport('joomla.application.component.controller');
+jimport('joomla.application.component.controllerlegacy');
 
-$controller = JController::getInstance('cnotes');
+$controller = JControllerLegacy::getInstance('cnotes');
 $controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();

@@ -15,18 +15,22 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
 JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
 
 ?>
-<form name="adminForm" id="adminForm" method="post"
+<form name="adminForm" id="adminForm" method="post" class="table table-stripped"
       action="<?php echo JRoute::_('index.php?option=com_cnotes&view=notes'); ?>">
-    <div class="filter-search fltlft">
-        <label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
-        <input type="text" name="filter_search" id="filter_search"
-               value="<?php echo $this->escape($this->state->get('filter.search')); ?>"
-               title="<?php echo JText::_('COM_CNOTES_SEARCH_IN_TITLE'); ?>"/>
-        <button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
-        <button type="button"
-                onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+    <div class="filter-search fltlft btn-toolbar">
+		<div class="btn-group pull-left">
+			<label class="filter-search-lbl pull-left" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
+			<input type="text" name="filter_search" id="filter_search"
+				   value="<?php echo $this->escape($this->state->get('filter.search')); ?>"
+				   title="<?php echo JText::_('COM_CNOTES_SEARCH_IN_TITLE'); ?>"/>
+		</div>
+		<div class="btn-group pull-left">
+			<button type="submit" class="btn"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
+			<button type="button" class="btn"
+					onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+		</div>
     </div>
-    <div class="clr"></div>
+    <div class="clr clear"></div>
     <table class="adminlist">
         <thead>
         <tr>

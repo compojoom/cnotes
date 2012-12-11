@@ -47,6 +47,20 @@
 
           <revremark>1st Draft</revremark>
         </revision>
+
+        <revision>
+          <revnumber>CNotes - 1.1.0 - Revision 0.1</revnumber>
+
+          <date>18.09.2012</date>
+
+          <author>
+            <firstname>Daniel</firstname>
+
+            <surname>Dimitrov</surname>
+          </author>
+
+          <revremark>1st Draft</revremark>
+        </revision>
       </revhistory></para>
   </article>
 
@@ -170,9 +184,64 @@
       <para>Once logged into your Joomla backend you can access the component
       by clicking on Components -&gt; CNotes . You'll be presented with a list
       of all notes entered by your users. Using the edit &amp; delete buttons
-      at the top you can edit &amp; delete any note you want. </para>
+      at the top you can edit &amp; delete any note you want.</para>
 
       <graphic fileref="images/cnotes-notes-backend.PNG"/>
+
+      <section>
+        <title>Options</title>
+
+        <section>
+          <title>Permissions</title>
+
+          <para>Per default registered users won't be ablel to create, edit or
+          delete their notes. You need to navigate to the backend of the
+          component and click the Options button on the notes view. </para>
+
+          <para>Once you do this you will be able to configure the permissions
+          for each and every group that should have access to the
+          component.</para>
+
+          <para><emphasis role="bold">Permission types</emphasis></para>
+
+          <itemizedlist>
+            <listitem>
+              <para>Access Administration Interface - the user that have this
+              permission will be able to access the administrator interface of
+              the component (provided that they can log into your Joomla
+              backend)</para>
+            </listitem>
+
+            <listitem>
+              <para>Configure - the users that have this permission will be
+              able to access the component settings/options</para>
+            </listitem>
+
+            <listitem>
+              <para>Create - users that have this permission will be able to
+              create notes in the frontend</para>
+            </listitem>
+
+            <listitem>
+              <para>Edit.own - users that have this permission will be able to
+              edit notes in the frontend</para>
+            </listitem>
+
+            <listitem>
+              <para>Delete.own - users that have this permission will be able
+              to delete notes in the frontend</para>
+            </listitem>
+          </itemizedlist>
+
+          <note>
+            <para>The user who is accessing the administrator interface needs
+            to have the edit.own &amp; delete.own permissions in order to edit
+            &amp; delete any notes in the backend.</para>
+
+            <para>Super users can always edit &amp; delete notes.</para>
+          </note>
+        </section>
+      </section>
     </section>
 
     <section>
@@ -194,7 +263,7 @@
       <para>Clicking on the delete button will delete the note. Clicking on
       the title will send the user to the page where he wrote the note. And
       clicking on the title will bring them to a screen where they can edit
-      their note: </para>
+      their note:</para>
 
       <graphic fileref="images/cnotes-edit-note-frontend.PNG"/>
     </section>
@@ -209,7 +278,7 @@
     the module you'll have to login into your Joomla Backend -&gt; go to
     Extension manager -&gt; Module manager. Here click on new and then look
     for "CNotes - user notes" -&gt; select the desired position and publish
-    the module to your registered users. </para>
+    the module to your registered users.</para>
 
     <graphic fileref="images/cnotes-add-new-note.PNG"/>
 
@@ -217,7 +286,7 @@
 
     <para>If the user has a note on the current page the module will show him
     that note. If you click on the title of the note you'll be presented with
-    an edit screen and you'll be able to modify your note. </para>
+    an edit screen and you'll be able to modify your note.</para>
   </chapter>
 
   <chapter>
@@ -235,7 +304,7 @@
       reason (like you go from non-SEF URL to SEF URL, or you start to use a
       new SEF extension) the module won't be able to properly match the notes
       for the page. However -&gt; the user will be still able to see the notes
-      in the "User notes" view of the component. </para>
+      in the "User notes" view of the component.</para>
     </section>
   </chapter>
 

@@ -30,16 +30,22 @@ JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
             <th width="15%"><?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'n.title', $listDir, $listOrder); ?></th>
             <th><?php echo JText::_('COM_CNOTES_NOTE'); ?></th>
             <th>URL</th>
-            <th></th>
+			<?php if($this->canDelete) : ?>
+            	<th></th>
+			<?php endif; ?>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($this->items as $i => $item) : ?>
             <tr class="row<?php echo $i % 2; ?>">
                 <td>
-                    <a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.edit&id='.$item->id); ?>">
-                        <?php echo $item->title; ?>
-                    </a>
+					<?php if($this->canEdit) : ?>
+                    	<a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.edit&id='.$item->id); ?>">
+                        	<?php echo $item->title; ?>
+                    	</a>
+					<?php else : ?>
+						<?php echo $item->title; ?>
+					<?php endif; ?>
                 </td>
                 <td><?php echo $item->note; ?></td>
                 <td>
@@ -49,11 +55,13 @@ JHtml::_('stylesheet', 'media/com_cnotes/css/cnotes.css');
                         <?php echo $item->url; ?>
                     </a>
                 </td>
-                <td>
-                    <a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.delete&id='.$item->id.'&'. JSession::getFormToken() .'=1'); ?>">
-                        <?php echo JText::_('COM_CNOTES_DELETE'); ?>
-                    </a>
-                </td>
+				<?php if($this->canDelete) : ?>
+					<td>
+						<a href="<?php echo JRoute::_('index.php?option=com_cnotes&task=note.delete&id='.$item->id.'&'. JSession::getFormToken() .'=1'); ?>">
+							<?php echo JText::_('COM_CNOTES_DELETE'); ?>
+						</a>
+					</td>
+				<?php endif; ?><
             </tr>
         <?php endforeach; ?>
         </tbody>

@@ -9,9 +9,9 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.application.component.view');
+jimport('joomla.application.component.viewlegacy');
 
-class cnotesViewNotes extends JView {
+class cnotesViewNotes extends JViewLegacy {
 
     public function display($tpl = null) {
         $user = JFactory::getUser();
@@ -20,6 +20,9 @@ class cnotesViewNotes extends JView {
             $this->state = $this->get('state');
             $this->items = $this->get('Items');
             $this->pagination = $this->get('Pagination');
+			// check if user has delete & edit permissions
+			$this->canEdit = JFactory::getUser()->authorise('core.edit.own', 'com_cnotes');
+			$this->canDelete = JFactory::getUser()->authorise('core.delete.own', 'com_cnotes');
         } else {
             $tpl = 'error';
         }
