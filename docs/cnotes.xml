@@ -194,7 +194,7 @@
         <section>
           <title>Permissions</title>
 
-          <para>Per default registered users won't be ablel to create, edit or
+          <para>Per default registered users won't be able to create, edit or
           delete their notes. You need to navigate to the backend of the
           component and click the Options button on the notes view. </para>
 
